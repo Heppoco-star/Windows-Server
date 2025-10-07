@@ -1,0 +1,74 @@
+■Windows Server2019のエディション
+・Datacenter：仮想環境向け
+・Standard：仮想化環境として、ややいいサメの規模向け
+・Foundation：中小企業向けに25接続ライセンスが付与されている
+
+■Essentials
+・クライアントアクセスライセンス(CAL)を備えた専用ライセンスで、25ユーザ/50台のデバイスまで使用可能。
+※CALの購入は不要。
+・Standardバージョンより安価
+・すべてのレガシーアプリとその他の機能をUI上で実行でき、ファイルの共有や印刷も可能。
+※Microsoftでは、Windows Serverの次のメジャーバージョン向け用にEssentialsの次のバージョンをリリースする予定はない。
+
+■Standard
+・25人以上のユーザ(ユーザ数に制限なし)、または異なるサーバの役割を分離するために複数のサーバを必要とする中小企業向けに設計されている。
+・クライアントアクセスライセンス(CAL)の購入が必要。
+・Standardエディションのみ、複数のサーバからFlexible Server Maste Operations(FSMO)機能を分離して、
+　環境セキュリティを向上できる。
+
+■Datacenter
+・1つの物理ホスト上に多数の仮想マシン(VM)を配置できるので、仮想化に使用される。
+・クライアントアクセスライセンス(CAL)の購入が必要。
+・実行可能なVMに制限はない。
+・Standardライセンスより高価なため、物理サーバ上で実行するVMの数が少ない場合、Standardライセンスを購入したほうが割安。
+
+■EssintialsとStandardの違い
+・Windows Serverコア機能
+Essentials：なし
+Standard：あり
+・Hyper-Vを備えたWindows Serverコンテナ
+Essentials：なし
+Standard：2
+・Hyper-V分離なしのWindows Serverコンテナ
+Essentials：なし
+Standard：あり
+・ライセンスモデル
+Essentials：専門サーバー
+Standard：コアベースライセンス
+・CAL
+Essentials：CAL不要
+Standard：Windows Server CAL
+
+■StandardとDatacenterの違い
+・仮想化
+Standard：仮想化ゲストとして使用可能だが、1ライセンスにつき2台の仮想マシンと、1台のHyper-Vホストのみ利用可能。
+Datacenter：1ライセンスにつき無制限の仮想マシンと1台のHyper-Vホストを提供する。
+
+・ネットワーク仮想化(ネットワークコントローラ)
+Standard：なし
+Datacenter：あり
+
+・コンテナ
+Standard：Windowsコンテナ数は無制限、Hyper-Vコンテナは2つのみ。
+Datacenter：Windowsコンテナ数、Hyper-Vコンテナ数は無制限。
+
+・Hyper-Vセキュリティ
+Standard：なし
+Datacenter：ホストガーディアンサービスを使用することで、Hyper-V仮想マシンを暗号化できる。
+
+・記憶域レプリカ
+Standard：1つのパートナーと1つのリソースグループに制限される。単一ボリューム容量は2TB。
+Datacenter：無制限の数の記憶域レプリカに結合できる。
+
+・記憶域スペースダイレクト
+Standard：なし
+Datacenter：ソフトウェアデファインドストレージテクノロジはDatacenterのみ。
+　　　　　　 S2Dでは、記憶域スペースダイレクトを通じて、クラスタメンバー間でプールされたローカル接続ストレージを使用できる。
+
+・従来のアクティベーション
+Standard：データセンターでホストされている場合は、従来のアクティベーションを使用可能。
+Datacenter：ゲストだけでなくホストにもなれる。
+
+
+
+
