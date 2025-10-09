@@ -1,0 +1,20 @@
+■IISとは
+Microsoft Internet Information Srvices。
+Microsoftが提供しているWebサーバーサービス。
+
+<IISの動作環境>
+・Windows Server
+・Windows7以降のクライアント(Professionalなどの上位エディションのみ)
+※但し、Windows7以降のデスクトップ向けWindowsでは、デフォルトで無効。同時接続数も制限。
+
+■IISの強み
+・パソコン用のWindowsに似た、視覚的にわかりやすい操作性
+・Microsoft製品との高い親和性
+・Microsoft開発プラットフォーム(ASP.NETなど)で開発したものが動作する
+・Microsoftの充実したサポート
+・Azureでも利用可能
+＞＞Windowsベースでの安定したWebサイトの構築にIIS+Microsoft SQL Serverが利用される。
+
+■IISを使う際の注意点
+・Windows以外のOSにIISをインストールできない。
+＞Linuxで構築する場合はApacheやnginXを選択する。
