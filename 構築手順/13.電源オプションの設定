@@ -1,0 +1,87 @@
+13.電源オプションの設定
+
+PowerShellで電源オプションを変更する。
+
+■電源プランの変更
+1.PowerShellの起動
+管理者権限でPowerShellを起動
+
+2.電源プランの一覧を表示
+以下のコマンドを実行する
+powercfg -LIST
+
+実行すると電源プラン一覧(各電源設定プランのGUID)が表示される
+末尾に「＊」がついているのが、現在の電源プラン
+
+3.電源プランを変更する
+以下のコマンドを実行する
+pwercfg -SETACTIVE <GUID>
+
+例)高パフォーマンスに変更する場合
+powercfg -SETACTIVE <高パフォーマンス電源設定のGUID>
+
+電源プランの設定を確認
+powercfg -LIST
+(高パフォーマンス)の末尾に「＊」がついていれば、高パフォーマンス設定に変更されている。
+
+■ディスプレイOFF時間の変更
+1.PowerShellの起動
+管理者権限でPowerShellを起動
+
+2.ディスプレイ電源を切る時間設定の変更
+以下のコマンドを実行する
+※バッテリー駆動時　ディスプレイの電源を切る　5分
+powercfg -x monitor-timeout-dc 5
+※電源接続　ディスプレイの電源を切る　15分
+powercfg -x monitor-timeout-ac 15
+
+■スリープに入る時間の設定
+1.PowerShellの起動
+管理者権限でPowerShellを起動
+
+2.スリープに入る時間を設定する
+※バッテリー駆動　コンピューターをスリープ状態にする　10分
+powercfg -x standby-timeout-dc 10
+※電源接続　コンピューターをスリープ状態にする　30分
+powercfg -x standby-timeout-ac 30
+
+■電源ボタンの動作を変更する
+1.PowerShellの起動
+管理者権限でPowerShellを起動
+
+2.以下のコマンドを参考に、電源ボタンの動作を変更する
+※電源ボタンを押したときの動作
+powercfg -setacvalueindex <電源モード> sub_buttons pbuttonaction <動作>
+※カバーを閉じたときの動作
+powercfg -setdcvalueindex <電源モード> sub_buttons lidaction <動作>
+
+※電源モード
+・scheme_balanced：バランスモード
+・scheme_min：高パフォーマンスモード
+
+※動作の数字
+・000：何もしない
+・001：スリープ
+・002：休止状態
+・003：シャットダウン
+
+【設定例】
+※電源接続　電源モード(バランスモード)　電源ボタンを押したときの動作(シャットダウン)
+powercfg -setacvalueindex scheme_balanced sub_buttons pbuttonaction 003
+※電源接続　電源モード(高パフォーマンスモード)　電源ボタンを押したときの動作(シャットダウン)
+powercfg -setacvalueindex scheme_min sub_buttons pbuttonaction 003
+※電源接続　電源モード(バランスモード)　カバーを閉じたときの動作(何もしない)
+powercfg -setacvalueindex scheme_balanced sub_buttons lidaction 000
+※電源接続　電源モード(高パフォーマンスモード)　カバーを閉じたときの動作(何もしない)
+powercfg -setacvalueindex scheme_min sub_buttons lidaction 000
+
+※バッテリー駆動　電源モード(バランスモード)　電源ボタンを押したときの動作(シャットダウン)
+powercfg -setdcvalueindex scheme_balanced sub_buttons pbuttonaction 003
+※バッテリー駆動　電源モード(高パフォーマンスモード)　電源ボタンを押したときの動作(シャットダウン)
+powercfg -setdcvalueindex scheme_min sub_buttons pbuttonaction 003
+※バッテリー駆動　電源モード(バランスモード)　カバーを閉じたときの動作(スリープ)
+powercfg -setdcvalueindex scheme_balanced sub_buttons lidaction 001
+※バッテリー駆動　電源モード(高パフォーマンスモード)　カバーを閉じたときの動作(スリープ)
+powercfg -setdcvalueindex scheme_min sub_buttons lidaction 001
+
+
