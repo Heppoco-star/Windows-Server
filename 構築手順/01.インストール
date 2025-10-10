@@ -1,0 +1,29 @@
+1. .isoファイルを入手する
+Microsoft公式サイトにアクセスし、.isoファイルを入手する
+サイト：https://www.microsoft.com/ja-jp/evalcenter/evaluate-windows-server-2025
+
+「無料で使用開始」＞「ISOのダウンロード」をクリック
+↓
+必要情報を入力する
+↓
+入力がすんだら、[Download now]の青いボタンをクリックし、.isoファイルをダウンロードする。
+
+2.Windows Server 2025をインストールする
+
+■物理環境にインストールする場合
+＞.isoファイルをUSBメモリなどに帆損して、物理マシン(コンピュータなど)を起動してインストールする。
+
+■仮想環境にインストールする場合
+＞各仮想環境ソフトの手順に合わせてOSのインストールを実施する。
+
+※VMware workstationにインストールする場合
+「Windows Serverセットアップ画面」
+Windows Serverをインストールする場所を選択し、[次へ]を押下
+↓
+Windows Serverのインストール中
+※PCは数回再起動する
+↓
+インストールが完了する
+
+
+
