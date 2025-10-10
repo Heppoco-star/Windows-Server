@@ -1,5 +1,47 @@
 11.Windows Updateの実施
-　Windows Updateを実施する
+■Windows Updateを実施する
 
 [設定]＞[更新とセキュリティ]＞[Windows Update]
 からWindows Updateを実施
+
+■特定のKB番号にする
+
+Microsoft Updateカタログから特定の更新プログラムを手動でダウンロードしてインストールする。
+
+※以下の場合にMicrosoft Updateカタログから手動アップデートする
+・Windows Updateで特定の更新だけ失敗する
+・更新を複数のPCに手動で実施したい
+・ロールアップ更新や累積更新を特定して適用したい
+
+※Microsoft Updateカタログ
+URL:https://catalog.update.microsoft.com/
+
+【KB番号の確認手順】
+・コマンドプロンプト：systeminfoコマンドを実行
+・PowerShell：Get-HotFixコマンドを実行
+※Get-HotFixコマンドの活用
+・Get-HotFix -Description "Update" ：DescriptionがUPDATEのものに絞って表示する
+・Get-HotFix -id "KBxxxxxxx"  ：指定したHotFixIDのみ出力する
+・Get-HotFix | Where-Object HotFixID -like "KB500*"  :KB500~に該当するものをすべて出力する
+
+【手動インストールの手順】
+1.インストールしたい更新のKB番号を確認
+Windows Updateのエラーコード画面や、サポート記事などからKB番号を特定
+
+2.Microsoft Updateカタログにアクセス
+サイトにアクセスし、検索バーにKB番号を入力して検索
+
+3.適切なバージョンを選ぶ
+OSのバージョンやアーキテクチャ(64bit/32bit)に対応したものを確認
+[ダウンロード]ボタンをクリックし、表示されたリンクをクリックして「.msu」ファイルを保存
+
+4.ダウンロードした更新を実行してインストール
+保存した「.msu」ファイルをダブルクリック
+↓
+インストールが始まり、自動的に完了(再起動を求められる場合がある)
+※管理者権限は基本不要。失敗する場合は右クリック→「管理者として実行」で管理者権限で実行できる
+
+※コマンドラインからインストールする場合(ログで確認しやすい)
+wusa.exe C:\<Path to>\updatefile.msu /quiet /norestart
+・/quiet：非表示で実行
+・/norestart：自動で再起動しない(あとで再起動)
