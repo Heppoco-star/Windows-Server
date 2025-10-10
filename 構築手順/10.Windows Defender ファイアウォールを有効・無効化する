@@ -1,0 +1,26 @@
+10.Windows Defender ファイアウォールを有効化/無効化する
+
+■Winows Defenderファイアウォール無効化手順(一般的な方法)
+スタートボタン横の検索窓で「Windows Defenderファイアウォール」を検索
+↓
+Windows Defenderファイアウォールを開く
+↓
+左側メニュー「Windows Defenderファイアウォールの有効かまたは無効化」をクリック
+↓
+「ドメイン」、「プライベート」、「パブリック」から設定を変更したいネットワークを選択し、
+☑Windows Defenderファイアウォールを無効にする(推奨されません)にチェックを入れる
+
+■Winows Defenderファイアウォール無効化手順(コマンドプロンプト)
+コマンドプロンプトを管理者権限で実行し、以下のコマンドを実行する
+netsh advfirewall set allprofiles state off
+
+※有効にする場合は以下を実行する
+netsh advfirewall set allprofs on
+
+※バッチファイルで無効化する場合は、以下を[.bat]形式で保存し、管理者権限で実行する
+@echo off
+color 1f
+netsh advfirewall set allprofiles state off
+echo Windows Firewall "OFF"
+pause
+
