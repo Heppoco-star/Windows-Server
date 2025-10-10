@@ -45,3 +45,9 @@ OSのバージョンやアーキテクチャ(64bit/32bit)に対応したもの�
 wusa.exe C:\<Path to>\updatefile.msu /quiet /norestart
 ・/quiet：非表示で実行
 ・/norestart：自動で再起動しない(あとで再起動)
+
+■Windows Updateの無効化
+グループポリシーで以下の設定を実施。
+[コンピューターの構成]＞[管理用テンプレート]＞[Windowsコンポーネント]＞[Windows Update]＞
+[自動更新を構成する]を"無効"に設定する
+
