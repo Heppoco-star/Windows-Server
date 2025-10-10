@@ -10,6 +10,14 @@ Microsoft Updateカタログから特定の更新プログラムを手動でダ�
 ※Microsoft Updateカタログ
 URL:https://catalog.update.microsoft.com/
 
+【KB番号の確認手順】
+・コマンドプロンプト：systeminfoコマンドを実行
+・PowerShell：Get-HotFixコマンドを実行
+※Get-HotFixコマンドの活用
+・Get-HotFix -Description "Update" ：DescriptionがUPDATEのものに絞って表示する
+・Get-HotFix -id "KBxxxxxxx"  ：指定したHotFixIDのみ出力する
+・Get-HotFix | Where-Object HotFixID -like "KB500*"  :KB500~に該当するものをすべて出力する
+
 【手動インストールの手順】
 1.インストールしたい更新のKB番号を確認
 Windows Updateのエラーコード画面や、サポート記事などからKB番号を特定
